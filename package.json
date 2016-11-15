@@ -31,8 +31,8 @@
     "test": "tsc --p tsconfig.json && mocha \"build/test/**/*.js\""
   },
   "dependencies": {
-    "@types/lodash": "^4.14.37",
-    "lodash": "^4.16.5",
+    "@types/lodash": "^4.14.39",
+    "lodash": "^4.17.1",
     "scalts": "^0.5.1"
   },
   "devDependencies": {

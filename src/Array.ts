@@ -115,6 +115,11 @@ declare global {
          * ES2015 indexOf with Optional support
          */
         indexOfOpt(value: T) : Optional<number>;
+
+        /**
+         * Gets all but the last element of array.
+         */
+        initial : Array<T>;
     }
 }
 
@@ -195,6 +200,14 @@ Array.prototype.indexOfOpt = function(value : any) {
     const res = this.indexOf(value);
     return res < 0 ? None : Some(res);
 };
+
+Object.defineProperty(Array.prototype, 'initial', {
+    get: function () {
+        return this.filter((value, index) => (index+1) !== this.length);
+    },
+    enumerable: true,
+    configurable: true
+});
 
 
 export default {};

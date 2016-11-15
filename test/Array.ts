@@ -69,7 +69,7 @@ describe('scalts-array', () => {
 
     it("flattenDeep", () => {
         const array = [1, [2, [3, [4]], 5]];
-        assert(lodash.isEqual(array.flattenDeep, lodash.flattenDeep(array)))
+        assert(lodash.isEqual(array.flattenDeep, lodash.flattenDeep(array)));
     });
 
     testLodashMethod('flattenDepth', [1, [2, [3, [4]], 5]], 1);
@@ -83,5 +83,11 @@ describe('scalts-array', () => {
     it("indexOfOpt", () => {
         assert([].indexOfOpt(1).isEmpty);
         assert([1,2,3].indexOfOpt(2).fold(false, i => i === 1));
+    });
+
+
+    it("initial", () => {
+        const array = [1, 2, 3];
+        assert(lodash.isEqual(array.initial, lodash.initial(array)))
     });
 });

@@ -141,9 +141,15 @@ declare global {
         last : Optional<T>;
 
         /**
-         * ES2015 lastIndexOf with Optional support
+         * ES2015 lastIndexOf with Optional support.
          */
         lastIndexOfOpt(value: T, fromIndex ?: number) : Optional<number>;
+
+
+        /**
+         * Gets all but the first element of array.
+         */
+        tail : Array<T>;
     }
 }
 
@@ -257,5 +263,14 @@ Array.prototype.lastIndexOfOpt = function(value : any, fromIndex ?: number) {
     const res = this.lastIndexOf(value, fromIndex || this.length - 1);
     return res === -1 ? None : Some(res);
 };
+
+Object.defineProperty(Array.prototype, 'tail', {
+    get: function () {
+        const [first, ...arr] = this;
+        return arr;
+    },
+    enumerable: true,
+    configurable: true
+});
 
 export default {};

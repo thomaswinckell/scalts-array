@@ -137,4 +137,9 @@ describe('scalts-array', () => {
         assert([].lastIndexOfOpt(1).isEmpty);
         assert([1,2,3,2].lastIndexOfOpt(2).fold(false, i => i === 3));
     });
+
+    it('tail', () => {
+        assert(lodash.isEqual([].tail, []));
+        assert(lodash.isEqual([1,2,3].tail, [2,3]));
+    });
 });

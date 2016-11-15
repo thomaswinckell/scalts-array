@@ -58,4 +58,9 @@ describe('scalts-array', () => {
         assert([2,3,1].findIndexOpt(n => n === 4) === None);
         assert([2,3,1].findIndexOpt(n => n === 3).getOrElse(-1) === 1);
     });
+
+    it("findLastIndexOpt", () => {
+        assert([1,1,1].findLastIndexOpt(n => n === 4) === None);
+        assert([1,1,1].findLastIndexOpt(n => n === 1).getOrElse(-1) === 2);
+    });
 });

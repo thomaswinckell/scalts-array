@@ -83,6 +83,11 @@ declare global {
          * predicate returns truthy for instead of the element itself.
          */
         findIndexOpt(predicate : (value : T) => boolean) : Optional<number>;
+
+        /**
+         * This method is like findIndexOpt except that it iterates over elements of collection from right to left.
+         */
+        findLastIndexOpt(predicate : (value : T) => boolean) : Optional<number>;
     }
 }
 
@@ -129,6 +134,11 @@ Array.prototype.findOpt = function(predicate : (value : any, index : number, arr
 
 Array.prototype.findIndexOpt = function(predicate : (value : any) => boolean) {
     const res : number = this.findIndex(predicate);
+    return res === -1 ? None : Some(res);
+};
+
+Array.prototype.findLastIndexOpt = function(predicate : (value : any) => boolean) {
+    const res : number = lodash.findLastIndex(this, predicate);
     return res === -1 ? None : Some(res);
 };
 

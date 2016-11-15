@@ -1,11 +1,10 @@
 import * as assert from 'power-assert';
 import * as lodash from 'lodash';
 
-import {Some, None} from "scalts";
+import {None} from "scalts";
 
 import "../src/Array";
 
-// TODO : use a webpack loader if you want to override []
 
 describe('scalts-array', () => {
 

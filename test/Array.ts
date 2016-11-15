@@ -78,15 +78,9 @@ describe('scalts-array', () => {
         assert([1,1,1].findLastIndexOpt(n => n === 1).fold(false, i => i === 2));
     });
 
-    it('flatten', () => {
-        const array = [1, [2, [3, [4]], 5]];
-        assert(lodash.isEqual(array.flatten, lodash.flatten(array)))
-    });
+    testLodashMethod('flatten', [1, [2, [3, [4]], 5]]);
 
-    it('flattenDeep', () => {
-        const array = [1, [2, [3, [4]], 5]];
-        assert(lodash.isEqual(array.flattenDeep, lodash.flattenDeep(array)));
-    });
+    testLodashMethod('flattenDeep', [1, [2, [3, [4]], 5]]);
 
     testLodashMethod('flattenDepth', [1, [2, [3, [4]], 5]], 1);
     testLodashMethod('flattenDepth', [1, [2, [3, [4]], 5]], 2);

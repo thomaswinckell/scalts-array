@@ -84,14 +84,12 @@ declare global {
         /**
          * Returns the flatten array.
          */
-        // TODO : We should be able to deduce the new type or at least pass the type we want
-        flatten : Array<any>;
+        flatten<U>() : Array<U>;
 
         /**
          * Same as flatten, but recursively.
          */
-        // TODO : We should be able to pass the type we want
-        flattenDeep : Array<any>;
+        flattenDeep<U>() : Array<U>;
 
         /**
          * Same as flatten, but recursively up to depth times.
@@ -200,17 +198,13 @@ Array.prototype.findLastIndexOpt = function(predicate : (value : any) => boolean
     return res === -1 ? None : Some(res);
 };
 
-Object.defineProperty(Array.prototype, 'flatten', {
-    get: function () { return lodash.flatten(this); },
-    enumerable: true,
-    configurable: true
-});
+Array.prototype.flatten = function() {
+    return lodash.flatten(this);
+};
 
-Object.defineProperty(Array.prototype, 'flattenDeep', {
-    get: function () { return lodash.flattenDeep(this); },
-    enumerable: true,
-    configurable: true
-});
+Array.prototype.flattenDeep = function() {
+    return lodash.flattenDeep(this);
+};
 
 Array.prototype.flattenDepth = function(depth : number = 1) {
     return lodash.flattenDepth(this, depth);

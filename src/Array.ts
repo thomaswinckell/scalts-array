@@ -110,6 +110,11 @@ declare global {
          * Returns optionally the first element of the array or None if there is no element in the array.
          */
         head : Optional<T>;
+
+        /**
+         * ES2015 indexOf with Optional support
+         */
+        indexOfOpt(value: T) : Optional<number>;
     }
 }
 
@@ -186,6 +191,10 @@ Object.defineProperty(Array.prototype, 'head', {
     configurable: true
 });
 
+Array.prototype.indexOfOpt = function(value : any) {
+    const res = this.indexOf(value);
+    return res < 0 ? None : Some(res);
+};
 
 
 export default {};

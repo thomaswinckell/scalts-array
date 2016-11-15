@@ -1,8 +1,6 @@
 import * as assert from 'power-assert';
 import * as lodash from 'lodash';
 
-import {None} from "scalts";
-
 import "../src/Array";
 
 
@@ -50,17 +48,17 @@ describe('scalts-array', () => {
     testLodashMethod('dropWhile', users, 'active');
 
     it("findOpt", () => {
-        assert([1,2,3].findOpt(n => n === 4) === None);
+        assert([1,2,3].findOpt(n => n === 4).isEmpty);
         assert([1,2,3].findOpt(n => n === 2).fold(false, i => i === 2));
     });
 
     it("findIndexOpt", () => {
-        assert([2,3,1].findIndexOpt(n => n === 4) === None);
+        assert([2,3,1].findIndexOpt(n => n === 4).isEmpty);
         assert([2,3,1].findIndexOpt(n => n === 3).fold(false, i => i === 1));
     });
 
     it("findLastIndexOpt", () => {
-        assert([1,1,1].findLastIndexOpt(n => n === 4) === None);
+        assert([1,1,1].findLastIndexOpt(n => n === 4).isEmpty);
         assert([1,1,1].findLastIndexOpt(n => n === 1).fold(false, i => i === 2));
     });
 
@@ -78,7 +76,12 @@ describe('scalts-array', () => {
     testLodashMethod('flattenDepth', [1, [2, [3, [4]], 5]], 2);
 
     it("head", () => {
-        assert([].head === None);
+        assert([].head.isEmpty);
         assert([1,2,3].head.fold(false, i => i === 1));
+    });
+
+    it("indexOfOpt", () => {
+        assert([].indexOfOpt(1).isEmpty);
+        assert([1,2,3].indexOfOpt(2).fold(false, i => i === 1));
     });
 });

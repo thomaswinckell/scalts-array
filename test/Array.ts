@@ -51,16 +51,21 @@ describe('scalts-array', () => {
 
     it("findOpt", () => {
         assert([1,2,3].findOpt(n => n === 4) === None);
-        assert([1,2,3].findOpt(n => n === 2).getOrElse(0) === 2);
+        assert([1,2,3].findOpt(n => n === 2).fold(false, i => i === 2));
     });
 
     it("findIndexOpt", () => {
         assert([2,3,1].findIndexOpt(n => n === 4) === None);
-        assert([2,3,1].findIndexOpt(n => n === 3).getOrElse(-1) === 1);
+        assert([2,3,1].findIndexOpt(n => n === 3).fold(false, i => i === 1));
     });
 
     it("findLastIndexOpt", () => {
         assert([1,1,1].findLastIndexOpt(n => n === 4) === None);
-        assert([1,1,1].findLastIndexOpt(n => n === 1).getOrElse(-1) === 2);
+        assert([1,1,1].findLastIndexOpt(n => n === 1).fold(false, i => i === 2));
+    });
+
+    it("head", () => {
+        assert([].head === None);
+        assert([1,2,3].head.fold(false, i => i === 1));
     });
 });

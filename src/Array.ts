@@ -88,6 +88,11 @@ declare global {
          * This method is like findIndexOpt except that it iterates over elements of collection from right to left.
          */
         findLastIndexOpt(predicate : (value : T) => boolean) : Optional<number>;
+
+        /**
+         * Returns optionally the first element of the array or None if there is no element in the array.
+         */
+        head : Optional<T>;
     }
 }
 
@@ -141,5 +146,13 @@ Array.prototype.findLastIndexOpt = function(predicate : (value : any) => boolean
     const res : number = lodash.findLastIndex(this, predicate);
     return res === -1 ? None : Some(res);
 };
+
+Object.defineProperty(Array.prototype, 'head', {
+    get: function () { return this.length === 0 ? None : Some(this[0]); },
+    enumerable: true,
+    configurable: true
+});
+
+
 
 export default {};

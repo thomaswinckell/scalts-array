@@ -12,7 +12,7 @@ declare global {
          * Creates an array of elements split into groups the length of size.
          * If array can't be split evenly, the final chunk will be the remaining elements.
          */
-        chunk(size : number) : Array<Array<T>>;
+        chunk(size ?: number) : Array<Array<T>>;
 
         /**
          * Creates an array with all falsey values removed.

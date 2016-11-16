@@ -290,4 +290,4 @@ Array.prototype.takeRight = function(n : number = 1) {
     return this.filter((value, index) => (this.length - 1 - index) < n);
 };
 
-export default {};
+export default Array;

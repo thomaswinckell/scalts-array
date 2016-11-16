@@ -154,6 +154,11 @@ declare global {
          * Creates a slice of array with n elements taken from the beginning.
          */
         take(n ?: number) : Array<T>;
+
+        /**
+         * Creates a slice of array with n elements taken from the end.
+         */
+        takeRight(n ?: number) : Array<T>;
     }
 }
 
@@ -279,6 +284,10 @@ Object.defineProperty(Array.prototype, 'tail', {
 
 Array.prototype.take = function(n : number = 1) {
     return this.filter((value, index) => index < n);
+};
+
+Array.prototype.takeRight = function(n : number = 1) {
+    return this.filter((value, index) => (this.length - 1 - index) < n);
 };
 
 export default {};

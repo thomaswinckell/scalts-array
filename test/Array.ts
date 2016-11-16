@@ -147,4 +147,9 @@ describe('scalts-array', () => {
     testLodashMethod('take', [1, 2, 3], 2);
     testLodashMethod('take', [1, 2, 3], 5);
     testLodashMethod('take', [1, 2, 3], 0);
+
+    testLodashMethod('takeRight', [1, 2, 3]);
+    testLodashMethod('takeRight', [1, 2, 3], 2);
+    testLodashMethod('takeRight', [1, 2, 3], 5);
+    testLodashMethod('takeRight', [1, 2, 3], 0);
 });

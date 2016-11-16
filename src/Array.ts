@@ -145,11 +145,15 @@ declare global {
          */
         lastIndexOfOpt(value: T, fromIndex ?: number) : Optional<number>;
 
-
         /**
          * Gets all but the first element of array.
          */
         tail : Array<T>;
+
+        /**
+         * Creates a slice of array with n elements taken from the beginning.
+         */
+        take(n ?: number) : Array<T>;
     }
 }
 
@@ -272,5 +276,9 @@ Object.defineProperty(Array.prototype, 'tail', {
     enumerable: true,
     configurable: true
 });
+
+Array.prototype.take = function(n : number = 1) {
+    return this.filter((value, index) => index < n);
+};
 
 export default {};

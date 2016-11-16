@@ -142,4 +142,9 @@ describe('scalts-array', () => {
         assert(lodash.isEqual([].tail, []));
         assert(lodash.isEqual([1,2,3].tail, [2,3]));
     });
+
+    testLodashMethod('take', [1, 2, 3]);
+    testLodashMethod('take', [1, 2, 3], 2);
+    testLodashMethod('take', [1, 2, 3], 5);
+    testLodashMethod('take', [1, 2, 3], 0);
 });

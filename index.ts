@@ -1,1 +1,3 @@
-export * from './src/Array';
+import Array from './src/Array';
+
+export default Array;

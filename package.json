@@ -36,7 +36,7 @@
   "dependencies": {
     "@types/lodash": "^4.14.39",
     "lodash": "^4.17.1",
-    "scalts": "^0.5.2"
+    "scalts": "^0.6.0"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.32",

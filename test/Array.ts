@@ -47,18 +47,23 @@ describe('scalts-array', () => {
     testLodashMethod('dropRight', [1, 2, 3], 5);
     testLodashMethod('dropRight', [1, 2, 3], 0);
 
-    const users = [
+    type User = {
+        user : String;
+        active : boolean;
+    }
+
+    const users : User[] = [
         { 'user': 'barney',  'active': false },
         { 'user': 'fred',    'active': false },
         { 'user': 'pebbles', 'active': true }
     ];
 
-    testLodashMethod('dropRightWhile', users, o => !o.active);
+    testLodashMethod('dropRightWhile', users, (u : User) => !u.active);
     testLodashMethod('dropRightWhile', users, { 'user': 'pebbles', 'active': false });
     testLodashMethod('dropRightWhile', users, ['active', false]);
     testLodashMethod('dropRightWhile', users, 'active');
 
-    testLodashMethod('dropWhile', users, o => !o.active);
+    testLodashMethod('dropWhile', users, (u : User) => !u.active);
     testLodashMethod('dropWhile', users, { 'user': 'pebbles', 'active': false });
     testLodashMethod('dropWhile', users, ['active', false]);
     testLodashMethod('dropWhile', users, 'active');
@@ -86,12 +91,12 @@ describe('scalts-array', () => {
     testLodashMethod('flattenDepth', [1, [2, [3, [4]], 5]], 2);
 
     it('head', () => {
-        assert([].head.isEmpty);
+        assert((<any[]>[]).head.isEmpty);
         assert([1,2,3].head.fold(false, i => i === 1));
     });
 
     it('indexOfOpt', () => {
-        assert([].indexOfOpt(1).isEmpty);
+        assert((<any[]>[]).indexOfOpt(1).isEmpty);
         assert([1,2,3].indexOfOpt(2).fold(false, i => i === 1));
     });
 
@@ -134,7 +139,7 @@ describe('scalts-array', () => {
     });
 
     it('lastIndexOfOpt', () => {
-        assert([].lastIndexOfOpt(1).isEmpty);
+        assert((<any[]>[]).lastIndexOfOpt(1).isEmpty);
         assert([1,2,3,2].lastIndexOfOpt(2).fold(false, i => i === 3));
     });
 

@@ -238,7 +238,7 @@ Array.prototype.indexOfOpt = function(value : any, fromIndex : number = 0) {
 
 Object.defineProperty(Array.prototype, 'initial', {
     get: function () {
-        return this.filter((value, index) => (index + 1) !== this.length);
+        return this.filter((value : any, index : number) => (index + 1) !== this.length);
     },
     enumerable: true,
     configurable: true
@@ -283,11 +283,11 @@ Object.defineProperty(Array.prototype, 'tail', {
 });
 
 Array.prototype.take = function(n : number = 1) {
-    return this.filter((value, index) => index < n);
+    return this.filter((value : any, index : number) => index < n);
 };
 
 Array.prototype.takeRight = function(n : number = 1) {
-    return this.filter((value, index) => (this.length - 1 - index) < n);
+    return this.filter((value : any, index : number) => (this.length - 1 - index) < n);
 };
 
 export default Array;

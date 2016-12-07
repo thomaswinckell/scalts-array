@@ -31,7 +31,6 @@
     "LICENSE"
   ],
   "scripts": {
-    "pretest": "rm -rf build",
     "test": "tsc && mocha \"./test/**/*.js\""
   },
   "dependencies": {

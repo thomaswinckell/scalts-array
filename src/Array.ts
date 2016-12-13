@@ -47,6 +47,13 @@ declare global {
         differenceWith(values : Array<Array<T>>, comparator : (value1:T, value2:T) => boolean) : Array<T>;
 
         /**
+         * Like lodash uniq.
+         * Creates a duplicate-free version of an array, using SameValueZero for equality comparisons, in which only the first occurrence of each element is kept.
+         * The order of result values is determined by the order they occur in the array.
+         */
+        distinct : Array< T >;
+
+        /**
          * Creates a slice of array with n elements dropped from the beginning.
          */
         drop(n : number) : Array<T>;
@@ -205,6 +212,12 @@ Array.prototype.differenceBy = function(values : Array<Array<any>>, iteratee : (
 Array.prototype.differenceWith = function(values : Array<Array<any>>, comparator : (value1:any, value2:any) => boolean) {
     return lodash.differenceWith(this, ...values, comparator);
 };
+
+Object.defineProperty(Array.prototype, 'distinct', {
+    get: function () { return lodash.uniq(this) },
+    enumerable: true,
+    configurable: true
+});
 
 Array.prototype.drop = function(n : number) {
     return lodash.drop(this, n);

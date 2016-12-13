@@ -50,6 +50,11 @@ describe('scalts-array', () => {
         assert(lodash.isEqual(array.differenceWith(values, iteratee), lodash.differenceWith(array, ...values, iteratee)))
     });
 
+    it('distinct', () => {
+        const array = [1, 2, 3, 2, 1, 4, 3, 2, 5];
+        assert(lodash.isEqual(array.distinct, lodash.uniq(array)))
+    });
+
     testLodashMethod('drop', [1, 2, 3]);
     testLodashMethod('drop', [1, 2, 3], 2);
     testLodashMethod('drop', [1, 2, 3], 5);

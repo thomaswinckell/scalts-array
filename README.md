@@ -36,6 +36,7 @@ Supported methods for an array of type T
     difference(...values : Array<any>) : Array<T>;
     differenceBy(values : Array<Array<T>>, iteratee : ((value:T) => any)|string) : Array<T>;
     differenceWith(values : Array<Array<T>>, comparator : (value1:T, value2:T) => boolean) : Array<T>;
+    distinct : Array< T >;
     drop(n : number) : Array<T>;
     dropRight(n : number) : Array<T>;
     dropRightWhile(predicate : (value : T, index : number, array : Array<T>) => boolean) : Array<T>;

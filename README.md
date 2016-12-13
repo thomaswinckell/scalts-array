@@ -32,6 +32,7 @@ Supported methods for an array of type T
 
     chunk(size ?: number) : Array<Array<T>>;
     compact() : Array<T>;
+    copy() : Array<T>;
     difference(...values : Array<any>) : Array<T>;
     differenceBy(values : Array<Array<T>>, iteratee : ((value:T) => any)|string) : Array<T>;
     differenceWith(values : Array<Array<T>>, comparator : (value1:T, value2:T) => boolean) : Array<T>;
@@ -54,8 +55,11 @@ Supported methods for an array of type T
     isEmpty : boolean;
     last : Optional<T>;
     lastIndexOfOpt(value: T, fromIndex ?: number) : Optional<number>;
+    reversed : Array< T >;
     tail : Array<T>;
     take(n ?: number) : Array<T>;
     takeRight(n ?: number) : Array<T>;
+    takeRightWhile(predicate : (value : T) => boolean) : Array<T>;
+    takeWhile(predicate : (value : T) => boolean) : Array<T>;
 
 

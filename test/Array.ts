@@ -7,7 +7,13 @@ import '../src/Array';
 describe('scalts-array', () => {
 
     function testLodashMethod(methodName : string, array : any[], ...args : any[]) {
-        it(methodName, () => assert(lodash.isEqual(array[methodName](...args), lodash[methodName](array, ...args))));
+        it(methodName, () => {
+            const isEqual = lodash.isEqual(array[methodName](...args), lodash[methodName](array, ...args));
+            if(!isEqual) {
+                console.log(methodName, array[methodName](...args), lodash[methodName](array, ...args));
+            }
+            assert(isEqual);
+        });
     }
 
     testLodashMethod('chunk', ['a', 'b', 'c', 'd'], 2);
@@ -145,8 +151,8 @@ describe('scalts-array', () => {
         assert([1,2,3,2].lastIndexOfOpt(2).fold(false, i => i === 3));
     });
 
-    it('reverse', () => {
-        assert(lodash.isEqual([1, 2, 3].reverse, [3, 2, 1]));
+    it('reversed', () => {
+        assert(lodash.isEqual([1, 2, 3].reversed, [3, 2, 1]));
     });
 
     it('tail', () => {
@@ -164,7 +170,9 @@ describe('scalts-array', () => {
     testLodashMethod('takeRight', [1, 2, 3], 5);
     testLodashMethod('takeRight', [1, 2, 3], 0);
 
-    testLodashMethod('takeRightWhile', [1, 2, 3], (n : number) =>  n > 2);
+    testLodashMethod('takeRightWhile', [1, 2, 3, 4, 5], (n : number) =>  n > 3);
+    testLodashMethod('takeRightWhile', [1, 2, 3, 2, 1], (n : number) =>  n < 3);
 
-    testLodashMethod('takeWhile', [1, 2, 3], (n : number) =>  n < 2);
+    testLodashMethod('takeWhile', [1, 2, 3, 4, 5], (n : number) =>  n < 3);
+    testLodashMethod('takeWhile', [1, 2, 3, 2, 1], (n : number) =>  n < 3);
 });

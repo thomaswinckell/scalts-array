@@ -144,7 +144,7 @@ declare global {
         /**
          * Returns the array reversed.
          */
-        reverse : Array<T>;
+        reversed : Array<T>;
 
         /**
          * Gets all but the first element of array.
@@ -284,7 +284,7 @@ Array.prototype.lastIndexOfOpt = function(value : any, fromIndex ?: number) {
     return res === -1 ? None : Some(res);
 };
 
-Object.defineProperty(Array.prototype, 'reverse', {
+Object.defineProperty(Array.prototype, 'reversed', {
     get: function () {
         return this.copy().reverse();
     },
@@ -310,11 +310,27 @@ Array.prototype.takeRight = function(n : number = 1) {
 };
 
 Array.prototype.takeRightWhile = function(predicate : (value : any) => boolean) {
-    return this.reverse.takeWhile(predicate).reverse;
+    let acc : any[] = [];
+    for(let i = this.length - 1; i >= 0; i--) {
+        if(predicate(this[i])) {
+            acc.unshift(this[i]);
+        } else {
+            break;
+        }
+    }
+    return acc;
 };
 
 Array.prototype.takeWhile = function(predicate : (value : any) => boolean) {
-    return this.filter((value : any) => predicate(value));
+    let acc : any[] = [];
+    for(let i = 0; i < this.length; i++) {
+        if(predicate(this[i])) {
+            acc.push(this[i]);
+        } else {
+            break;
+        }
+    }
+    return acc;
 };
 
 export default Array;

@@ -75,7 +75,6 @@ declare global {
          */
         findOpt(predicate : (value : T, index : number, array : Array<T>) => boolean) : Optional<T>;
 
-
         /**
          * This method is like find except that it returns the index of the first element
          * predicate returns truthy for instead of the element itself.
@@ -90,7 +89,12 @@ declare global {
         /**
          * Returns the flatten array.
          */
-        flatten<T>() : Array<T>;
+        flatten<U>() : Array<U>;
+
+        /**
+         * Returns the flatten array.
+         */
+        flatMap<U, V>(predicate : (value : U) => V) : Array<V>;
 
         /**
          * Returns optionally the first element of the array or None if the array is empty.
@@ -230,6 +234,10 @@ Array.prototype.findIndexOpt = function(predicate : (value : any) => boolean) {
 Array.prototype.findLastIndexOpt = function(predicate : (value : any) => boolean) {
     const res : number = lodash.findLastIndex(this, predicate);
     return res === -1 ? None : Some(res);
+};
+
+Array.prototype.flatMap = function(predicate : (value : any) => any) {
+    return this.flatten().map(predicate);
 };
 
 Array.prototype.flatten = function() {

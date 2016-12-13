@@ -98,6 +98,13 @@ describe('scalts-array', () => {
 
     testLodashMethod('flatten', [1, [2, [3, [4]], 5]]);
 
+    it('flatMap', () => {
+        const array = [[1,2], [3]];
+        const flattenedArray = [1, 2, 3];
+        assert(lodash.isEqual(array.flatMap<number, number>(i => i + 1), [2, 3, 4]));
+        assert(lodash.isEqual(flattenedArray.flatMap<number, number>(i => i + 1), [2, 3, 4]));
+    });
+
     it('head', () => {
         assert((<any[]>[]).head.isEmpty);
         assert([1,2,3].head.fold(false, i => i === 1));

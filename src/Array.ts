@@ -1,6 +1,7 @@
 import * as lodash from 'lodash';
 import {Optional, None, Some} from "scalts";
 
+
 declare global {
 
     /**
@@ -84,17 +85,7 @@ declare global {
         /**
          * Returns the flatten array.
          */
-        flatten<U>() : Array<U>;
-
-        /**
-         * Same as flatten, but recursively.
-         */
-        flattenDeep<U>() : Array<U>;
-
-        /**
-         * Same as flatten, but recursively up to depth times.
-         */
-        flattenDepth<U>(depth ?: number) : Array<U>;
+        flatten<T>() : Array<T>;
 
         /**
          * Returns optionally the first element of the array or None if the array is empty.
@@ -160,6 +151,8 @@ declare global {
          */
         takeRight(n ?: number) : Array<T>;
     }
+
+    type ArrayOfArray< T > = Array< Array< T > >;
 }
 
 
@@ -215,14 +208,6 @@ Array.prototype.findLastIndexOpt = function(predicate : (value : any) => boolean
 
 Array.prototype.flatten = function() {
     return lodash.flatten(this);
-};
-
-Array.prototype.flattenDeep = function() {
-    return lodash.flattenDeep(this);
-};
-
-Array.prototype.flattenDepth = function(depth : number = 1) {
-    return lodash.flattenDepth(this, depth);
 };
 
 Object.defineProperty(Array.prototype, 'head', {

@@ -85,11 +85,6 @@ describe('scalts-array', () => {
 
     testLodashMethod('flatten', [1, [2, [3, [4]], 5]]);
 
-    testLodashMethod('flattenDeep', [1, [2, [3, [4]], 5]]);
-
-    testLodashMethod('flattenDepth', [1, [2, [3, [4]], 5]], 1);
-    testLodashMethod('flattenDepth', [1, [2, [3, [4]], 5]], 2);
-
     it('head', () => {
         assert((<any[]>[]).head.isEmpty);
         assert([1,2,3].head.fold(false, i => i === 1));

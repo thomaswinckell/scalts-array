@@ -7,3 +7,10 @@ deploy:
   api_key: $NPM_TOKEN
   on:
     tags: true
+
+after_success:
+  - codeclimate-test-reporter < ./coverage/lcov.info
+
+addons:
+  code_climate:
+    repo_token: $CODE_CLIMATE_TOKEN

@@ -22,6 +22,11 @@ declare global {
         compact() : Array<T>;
 
         /**
+         * Creates a simple copy of the array.
+         */
+        copy() : Array<T>;
+
+        /**
          * Creates an array of array values not included in the other given arrays using SameValueZero for equality comparisons.
          * The order and references of result values are determined by the first array.
          */
@@ -137,6 +142,11 @@ declare global {
         lastIndexOfOpt(value: T, fromIndex ?: number) : Optional<number>;
 
         /**
+         * Returns the array reversed.
+         */
+        reverse : Array<T>;
+
+        /**
          * Gets all but the first element of array.
          */
         tail : Array<T>;
@@ -150,9 +160,21 @@ declare global {
          * Creates a slice of array with n elements taken from the end.
          */
         takeRight(n ?: number) : Array<T>;
-    }
 
-    type ArrayOfArray< T > = Array< Array< T > >;
+        /**
+         * Creates a slice of array with elements taken from the end.
+         * Elements are taken until predicate returns falsey.
+         * The predicate is invoked with three arguments: (value, index, array)..
+         */
+        takeRightWhile(predicate : (value:T) => boolean) : Array<T>;
+
+        /**
+         * Creates a slice of array with elements taken from the beginning.
+         * Elements are taken until predicate returns falsey.
+         * The predicate is invoked with three arguments: (value, index, array).
+         */
+        takeWhile(predicate : (value:T) => boolean) : Array<T>;
+    }
 }
 
 
@@ -162,6 +184,10 @@ Array.prototype.chunk = function(size : number = 1) {
 
 Array.prototype.compact = function() {
     return lodash.compact(this);
+};
+
+Array.prototype.copy = function() {
+    return [...this];
 };
 
 Array.prototype.difference = function(...values : Array<any>) {
@@ -258,6 +284,14 @@ Array.prototype.lastIndexOfOpt = function(value : any, fromIndex ?: number) {
     return res === -1 ? None : Some(res);
 };
 
+Object.defineProperty(Array.prototype, 'reverse', {
+    get: function () {
+        return this.copy().reverse();
+    },
+    enumerable: true,
+    configurable: true
+});
+
 Object.defineProperty(Array.prototype, 'tail', {
     get: function () {
         const [first, ...arr] = this;
@@ -273,6 +307,14 @@ Array.prototype.take = function(n : number = 1) {
 
 Array.prototype.takeRight = function(n : number = 1) {
     return this.filter((value : any, index : number) => (this.length - 1 - index) < n);
+};
+
+Array.prototype.takeRightWhile = function(predicate : (value : any) => boolean) {
+    return this.reverse.takeWhile(predicate).reverse;
+};
+
+Array.prototype.takeWhile = function(predicate : (value : any) => boolean) {
+    return this.filter((value : any) => predicate(value));
 };
 
 export default Array;

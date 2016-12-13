@@ -14,6 +14,13 @@ describe('scalts-array', () => {
 
     testLodashMethod('compact', [0, 1, false, 2, '', 3]);
 
+    it('copy', () => {
+        const initial = [1, 2, 3];
+        const copy = initial.copy();
+        assert(lodash.isEqual(initial, copy));
+        assert(initial != copy);
+    });
+
     testLodashMethod('difference', [2, 1], [2, 3]);
 
     it('differenceBy', () => {
@@ -138,6 +145,10 @@ describe('scalts-array', () => {
         assert([1,2,3,2].lastIndexOfOpt(2).fold(false, i => i === 3));
     });
 
+    it('reverse', () => {
+        assert(lodash.isEqual([1, 2, 3].reverse, [3, 2, 1]));
+    });
+
     it('tail', () => {
         assert(lodash.isEqual([].tail, []));
         assert(lodash.isEqual([1,2,3].tail, [2,3]));
@@ -152,4 +163,8 @@ describe('scalts-array', () => {
     testLodashMethod('takeRight', [1, 2, 3], 2);
     testLodashMethod('takeRight', [1, 2, 3], 5);
     testLodashMethod('takeRight', [1, 2, 3], 0);
+
+    testLodashMethod('takeRightWhile', [1, 2, 3], (n : number) =>  n > 2);
+
+    testLodashMethod('takeWhile', [1, 2, 3], (n : number) =>  n < 2);
 });

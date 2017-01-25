@@ -86,6 +86,11 @@ describe('scalts-array', () => {
     testLodashMethod('dropWhile', users, ['active', false]);
     testLodashMethod('dropWhile', users, 'active');
 
+    it('exists', () => {
+        assert(![1,2,3].exists(n => n === 4));
+        assert([1,2,3].exists(n => n === 2));
+    });
+
     it('findOpt', () => {
         assert([1,2,3].findOpt(n => n === 4).isEmpty);
         assert([1,2,3].findOpt(n => n === 2).fold(false, i => i === 2));

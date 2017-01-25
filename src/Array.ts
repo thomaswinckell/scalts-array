@@ -78,6 +78,11 @@ declare global {
         dropWhile(predicate : (value : T, index : number, array : Array<T>) => boolean) : Array<T>;
 
         /**
+         * Returns true if at least one value match the given predicate.
+         */
+        exists(predicate : (value : T, index : number, array : Array<T>) => boolean) : boolean;
+
+        /**
          * ES2015 find with Optional support
          */
         findOpt(predicate : (value : T, index : number, array : Array<T>) => boolean) : Optional<T>;
@@ -233,6 +238,10 @@ Array.prototype.dropRightWhile = function(predicate : (value : any, index : numb
 
 Array.prototype.dropWhile = function(predicate : (value : any, index : number, array : Array<any>) => boolean) {
     return lodash.dropWhile(this, predicate);
+};
+
+Array.prototype.exists = function(predicate : (value : any, index : number, array : Array<any>) => boolean) {
+    return this.findOpt(predicate).nonEmpty;
 };
 
 Array.prototype.findOpt = function(predicate : (value : any, index : number, array : Array<any>) => boolean) {

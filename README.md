@@ -41,6 +41,7 @@ Supported methods for an array of type T
     dropRight(n : number) : Array<T>;
     dropRightWhile(predicate : (value : T, index : number, array : Array<T>) => boolean) : Array<T>;
     dropWhile(predicate : (value : T, index : number, array : Array<T>) => boolean) : Array<T>;
+    exists(predicate : (value : T, index : number, array : Array<T>) => boolean) : boolean;
     findOpt(predicate : (value : T, index : number, array : Array<T>) => boolean) : Optional<T>;
     findIndexOpt(predicate : (value : T) => boolean) : Optional<number>;
     findLastIndexOpt(predicate : (value : T) => boolean) : Optional<number>;
@@ -56,6 +57,7 @@ Supported methods for an array of type T
     last : Optional<T>;
     lastIndexOfOpt(value: T, fromIndex ?: number) : Optional<number>;
     reversed : Array< T >;
+    sortBy(iteratee : ((value : T) => any)|string[]) : Array<T>;
     tail : Array<T>;
     take(n ?: number) : Array<T>;
     takeRight(n ?: number) : Array<T>;

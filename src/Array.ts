@@ -163,6 +163,13 @@ declare global {
         reversed : Array<T>;
 
         /**
+         * Creates an array of elements, sorted in ascending order by the results of running each element in a collection thru each iteratee.
+         * This method performs a stable sort, that is, it preserves the original sort order of equal elements.
+         * The iteratees are invoked with one argument: (value).
+         */
+        sortBy(iteratee : ((value : T) => any)|string[]) : Array<T>;
+
+        /**
          * Gets all but the first element of array.
          */
         tail : Array<T>;
@@ -321,6 +328,10 @@ Object.defineProperty(Array.prototype, 'reversed', {
     enumerable: true,
     configurable: true
 });
+
+Array.prototype.sortBy = function(iteratee : ((value : any) => any)|string[]) {
+    return lodash.sortBy(this, iteratee);
+};
 
 Object.defineProperty(Array.prototype, 'tail', {
     get: function () {

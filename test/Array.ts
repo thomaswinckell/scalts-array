@@ -172,6 +172,9 @@ describe('scalts-array', () => {
         assert(lodash.isEqual([1, 2, 3].reversed, [3, 2, 1]));
     });
 
+    testLodashMethod('sortBy', users, (o : User) => o.user);
+    testLodashMethod('sortBy', users, ['user', 'age']);
+
     it('tail', () => {
         assert(lodash.isEqual([].tail, []));
         assert(lodash.isEqual([1,2,3].tail, [2,3]));

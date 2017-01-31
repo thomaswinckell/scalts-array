@@ -1,6 +1,6 @@
 {
   "name": "scalts-array",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Array enrichment based on lodash for Typescript and scalts",
   "keywords": [
     "typescript",
@@ -37,18 +37,18 @@
     "test": "npm run build && istanbul cover -x '**/logger.*' _mocha test/**/*.js"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.39",
-    "lodash": "^4.17.1",
-    "scalts": "^0.6.0"
+    "@types/lodash": "^4.14.52",
+    "lodash": "^4.17.4",
+    "scalts": "^1.0.1"
   },
   "devDependencies": {
-    "@types/mocha": "^2.2.32",
+    "@types/mocha": "^2.2.38",
     "@types/power-assert": "^1.4.29",
     "codeclimate-test-reporter": "^0.4.0",
     "istanbul": "^0.4.5",
-    "mocha": "^3.1.2",
-    "power-assert": "^1.4.1",
-    "typescript": "^2.1.4",
-    "typings": "^2.0.0"
+    "mocha": "^3.2.0",
+    "power-assert": "^1.4.2",
+    "typescript": "^2.1.5",
+    "typings": "^2.1.0"
   }
 }

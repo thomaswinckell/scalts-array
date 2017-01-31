@@ -46,7 +46,7 @@ Supported methods for an array of type T
     findIndexOpt(predicate : (value : T) => boolean) : Optional<number>;
     findLastIndexOpt(predicate : (value : T) => boolean) : Optional<number>;
     flatten<U>() : Array<U>;
-    flatMap<U, V>(predicate : (value : U) => V) : Array<V>;
+    flatMap(predicate : (value : T) => Array<T>) : Array<T>;
     head : Optional<T>;
     indexOfOpt(value: T, fromIndex ?: number) : Optional<number>;
     initial : Array<T>;

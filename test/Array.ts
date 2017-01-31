@@ -111,8 +111,8 @@ describe('scalts-array', () => {
     it('flatMap', () => {
         const array = [[1,2], [3]];
         const flattenedArray = [1, 2, 3];
-        assert(lodash.isEqual(array.flatMap<number, number>(i => i + 1), [2, 3, 4]));
-        assert(lodash.isEqual(flattenedArray.flatMap<number, number>(i => i + 1), [2, 3, 4]));
+        assert(lodash.isEqual(array.flatMap<number>(arr => arr.map(i => i + 1)), [2, 3, 4]));
+        assert(lodash.isEqual(flattenedArray.flatMap<number>(i => i + 1), [2, 3, 4]));
     });
 
     it('head', () => {

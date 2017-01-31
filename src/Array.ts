@@ -106,7 +106,11 @@ declare global {
         /**
          * Returns the flatten array.
          */
-        flatMap<U, V>(predicate : (value : U) => V) : Array<V>;
+        flatMap<U, V>(predicate : (value : U) => Array<V>) : Array<V>;
+        flatMap<U>(predicate : (value : T) => Array<U>) : Array<U>;
+        flatMap<U>(predicate : (value : T) => U) : Array<U>;
+        flatMap(predicate : (value : T) => Array<T>) : Array<T>;
+        flatMap(predicate : (value : T) => T) : Array<T>;
 
         /**
          * Returns optionally the first element of the array or None if the array is empty.
@@ -266,7 +270,7 @@ Array.prototype.findLastIndexOpt = function(predicate : (value : any) => boolean
 };
 
 Array.prototype.flatMap = function(predicate : (value : any) => any) {
-    return this.flatten().map(predicate);
+    return this.map(predicate).flatten();
 };
 
 Array.prototype.flatten = function() {

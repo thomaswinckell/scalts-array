@@ -93,17 +93,17 @@ describe('scalts-array', () => {
 
     it('findOpt', () => {
         assert([1,2,3].findOpt(n => n === 4).isEmpty);
-        assert([1,2,3].findOpt(n => n === 2).fold(false, i => i === 2));
+        assert([1,2,3].findOpt(n => n === 2).fold(() => false, i => i === 2));
     });
 
     it('findIndexOpt', () => {
         assert([2,3,1].findIndexOpt(n => n === 4).isEmpty);
-        assert([2,3,1].findIndexOpt(n => n === 3).fold(false, i => i === 1));
+        assert([2,3,1].findIndexOpt(n => n === 3).fold(() => false, i => i === 1));
     });
 
     it('findLastIndexOpt', () => {
         assert([1,1,1].findLastIndexOpt(n => n === 4).isEmpty);
-        assert([1,1,1].findLastIndexOpt(n => n === 1).fold(false, i => i === 2));
+        assert([1,1,1].findLastIndexOpt(n => n === 1).fold(() => false, i => i === 2));
     });
 
     testLodashMethod('flatten', [1, [2, [3, [4]], 5]]);
@@ -117,12 +117,12 @@ describe('scalts-array', () => {
 
     it('head', () => {
         assert((<any[]>[]).head.isEmpty);
-        assert([1,2,3].head.fold(false, i => i === 1));
+        assert([1,2,3].head.fold(() => false, i => i === 1));
     });
 
     it('indexOfOpt', () => {
         assert((<any[]>[]).indexOfOpt(1).isEmpty);
-        assert([1,2,3].indexOfOpt(2).fold(false, i => i === 1));
+        assert([1,2,3].indexOfOpt(2).fold(() => false, i => i === 1));
     });
 
     it('initial', () => {
@@ -160,12 +160,12 @@ describe('scalts-array', () => {
 
     it('last', () => {
         assert([].last.isEmpty);
-        assert([1,2,3].last.fold(false, i => i === 3));
+        assert([1,2,3].last.fold(() => false, i => i === 3));
     });
 
     it('lastIndexOfOpt', () => {
         assert((<any[]>[]).lastIndexOfOpt(1).isEmpty);
-        assert([1,2,3,2].lastIndexOfOpt(2).fold(false, i => i === 3));
+        assert([1,2,3,2].lastIndexOfOpt(2).fold(() => false, i => i === 3));
     });
 
     it('reversed', () => {

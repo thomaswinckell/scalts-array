@@ -37,9 +37,9 @@
     "test": "npm run build && istanbul cover -x '**/logger.*' _mocha test/**/*.js"
   },
   "dependencies": {
-    "@types/lodash": "4.14.52",
-    "lodash": "4.17.4",
-    "scalts": "1.0.2"
+    "@types/lodash": "^4.14.53",
+    "lodash": "^4.17.4",
+    "scalts": "^1.0.2"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.39",
@@ -48,7 +48,7 @@
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
     "power-assert": "^1.4.2",
-    "typescript": "2.1.6",
+    "typescript": "2.2.1",
     "typings": "^2.1.0"
   }
 }

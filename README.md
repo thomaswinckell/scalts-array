@@ -1,16 +1,16 @@
 [![Build Status](https://travis-ci.org/thomaswinckell/scalts-array.svg?branch=master)](https://travis-ci.org/thomaswinckell/scalts-array) [![npm version](https://img.shields.io/npm/v/scalts-array.svg?style=flat)](https://www.npmjs.com/package/scalts-array)[![Test Coverage](https://codeclimate.com/github/thomaswinckell/scalts-array/badges/coverage.svg)](https://codeclimate.com/github/thomaswinckell/scalts-array/coverage)
 
-##scalts-array
+## scalts-array
 
 Array enrichment based on lodash for Typescript and scalts.
 
 
-###Requirements
+### Requirements
 
 * [TypeScript v2](https://www.typescriptlang.org/#download-links)
 * [Scalts](https://github.com/dohrm/scalts)
 
-###Documentation
+### Documentation
 
 Mostly, see lodash documentation :
 
@@ -19,14 +19,14 @@ https://lodash.com/docs/4.16.4
 The methods that are not documented on lodash are just classic EcmaScript or lodash methods with scalts Optional support. They are suffixed by ```Opt``` like for instance ```indexOfOpt``` or ```findOpt```.
 
 
-###Usage
+### Usage
 
 ```
 import 'scalts-array'
 ```
 
 
-###Supported methods
+### Supported methods
 
 Supported methods for an array of type T
 

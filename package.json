@@ -32,7 +32,6 @@
   ],
   "scripts": {
     "clean": "rm -rf src/**/*.js && rm -rf src/**/*.d.ts && rm -rf test/**/*.js && rm -rf test/**/*.d.ts && rm index.js && rm index.d.ts",
-    "prebuild": "npm run clean",
     "build": "tsc && babel ./src --out-dir ./src --ignore ./node_modules/",
     "pretest": "npm run build",
     "test": "istanbul cover -x '**/logger.*' _mocha test/**/*.js",

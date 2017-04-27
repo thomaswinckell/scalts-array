@@ -37,9 +37,9 @@
     "test": "npm run build && istanbul cover -x '**/logger.*' _mocha test/**/*.js"
   },
   "peerDependencies": {
-    "@types/lodash": "^4.14.63",
-    "lodash": "^4.17.4",
-    "scalts": "^1.1.0"
+    "@types/lodash": "4.*.*",
+    "lodash": "4.*.*",
+    "scalts": "1.1.*"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.41",

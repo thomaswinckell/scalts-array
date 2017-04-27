@@ -36,7 +36,7 @@
     "build": "tsc",
     "test": "npm run build && istanbul cover -x '**/logger.*' _mocha test/**/*.js"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@types/lodash": "^4.14.63",
     "lodash": "^4.17.4",
     "scalts": "^1.1.0"
@@ -44,10 +44,13 @@
   "devDependencies": {
     "@types/mocha": "^2.2.41",
     "@types/power-assert": "^1.4.29",
+    "@types/lodash": "^4.14.63",
     "codeclimate-test-reporter": "^0.4.1",
     "istanbul": "^0.4.5",
+    "lodash": "^4.17.4",
     "mocha": "^3.3.0",
     "power-assert": "^1.4.2",
+    "scalts": "^1.1.0",
     "typescript": "^2.3.1"
   }
 }

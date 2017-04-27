@@ -1,6 +1,6 @@
 {
   "name": "scalts-array",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Array enrichment based on lodash for Typescript and scalts",
   "keywords": [
     "typescript",
